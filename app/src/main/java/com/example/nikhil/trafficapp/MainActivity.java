@@ -24,6 +24,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -55,8 +56,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(isConnected()){
             String url1 = "http://k53ldts.org/api/index.php/login/";
-            AsyncT ast = new AsyncT();
-            ast.execute(url1);
+            String uname = username.getText().toString();
+            String pass = password.getText().toString();
+            //String data = "{\"username\":\""+uname+"\", \"password\": \""+pass+"\"}";
+            String data = "{\"username\":\"admin\", \"password\": \"admin\"}";
+            try {
+                HttpPostingData htdp = new HttpPostingData(url1, data);
+                String res = htdp.getRes();
+                System.out.print(res+"niksdfsdfsdfsdfsdfsdfhil");
+                Toast.makeText(this, res, Toast.LENGTH_LONG);
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
 
         }else{
@@ -82,55 +95,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return false;
     }
 
-    class AsyncT extends AsyncTask<String,Void,Void>{
 
-        @Override
-        protected Void doInBackground(String... params) {
-
-            try {
-                URL url = new URL(params[0]); //Enter URL here
-                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setRequestMethod("POST"); // here you are telling that it is a POST request, which can be changed into "PUT", "GET", "DELETE" etc.
-                httpURLConnection.setRequestProperty("Content-Type", "application/json"); // here you are setting the `Content-Type` for the data you are sending which is `application/json`
-                httpURLConnection.connect();
-
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("username", "admin");
-                jsonObject.put("password", "admin");
-
-                DataOutputStream wr = new DataOutputStream(httpURLConnection.getOutputStream());
-                wr.writeBytes(jsonObject.toString());
-                wr.flush();
-               // wr.close();
-
-                StringBuilder sb = new StringBuilder();
-                int HttpResult = httpURLConnection.getResponseCode();
-                if (HttpResult == HttpURLConnection.HTTP_OK) {
-                    BufferedReader br = new BufferedReader(
-                            new InputStreamReader(httpURLConnection.getInputStream(), "utf-8"));
-                    String line = null;
-                    while ((line = br.readLine()) != null) {
-                        sb.append(line + "\n");
-                    }
-                    br.close();
-                    System.out.println("" + sb.toString());
-                } else {
-                    System.out.println(httpURLConnection.getResponseMessage());
-                }
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-
-    }
 
 }
