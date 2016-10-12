@@ -1,8 +1,6 @@
 package com.example.nikhil.trafficapp;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,6 +70,7 @@ public class HttpPostingData {
                     result = sb.toString();
                 } else {
                     //System.out.println(httpURLConnection.getResponseMessage());
+                    result = "{\"result\" : [{\"id\" : \"\"}]}";
                 }
 
             } catch (MalformedURLException e) {
