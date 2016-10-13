@@ -108,4 +108,21 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         else
             return false;
     }
+
+
+
+    //activity state to be check
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        CheckState.activityPaused();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        CheckState.activityResumed();
+    }
+
 }

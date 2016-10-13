@@ -39,6 +39,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Add action Listener to the button login
         login.setOnClickListener(this);
 
+        //initial network connectivity checking
+        if(isConnected() == true)
+            Toast.makeText(getApplicationContext(),"connected",Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(getApplicationContext(),"connected",Toast.LENGTH_SHORT).show();
+
     }
 
     private void init(){
@@ -122,6 +128,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else
             return false;
     }
+
+
+
+    //activity states to be checked (showld be written for every new activity, so that broadcast receiver can only work when app is up)
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        CheckState.activityPaused();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        CheckState.activityResumed();
+    }
+
 
 
 
