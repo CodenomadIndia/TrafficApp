@@ -2,6 +2,7 @@ package com.example.nikhil.trafficapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button login;
     RelativeLayout rl;
     ImageView iv6;
+    SessionManager sessionmanager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void init(){
+
+        sessionmanager = new SessionManager(this);
+
         username = (EditText)findViewById(R.id.username);
         password = (EditText)findViewById(R.id.password);
         login = (Button)findViewById(R.id.login);
@@ -49,11 +54,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        //Validate the Input EditText Fields
-        /*try {
-            rl.setAlpha(0.01f);
-
-        }catch (Exception ee){ee.printStackTrace();}*/
 
 
         if(validinput()) {
@@ -71,12 +71,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     JSONArray arr = jsonObject.getJSONArray("result");
                     for(int i=0; i<arr.length(); i++){
                         JSONObject o = arr.getJSONObject(i);
-                        //Toast.makeText(this, o.getString("id"), Toast.LENGTH_LONG).show();
+
                         if(o.getString("id").matches("")){
                             Toast.makeText(this, "Wrong Username or Password", Toast.LENGTH_LONG).show();
                         }else{
+                            String user_type = o.getString("user_type");
+                            String user_id = o.getString("id");
+                            sessionmanager.loggingIn(user_type, user_id);
                             Intent it = new Intent(this, Home.class);
                             startActivity(it);
+
                         }
                     }
                 } catch (ExecutionException e) {
