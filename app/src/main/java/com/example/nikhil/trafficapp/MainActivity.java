@@ -32,17 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         //Initialize the components of the Login Page
         init();
         //Add action Listener to the button login
         login.setOnClickListener(this);
-
-
-        //initial network connectivity checking
-        if(isConnected() == false)
-            Toast.makeText(getApplicationContext(),"no connected",Toast.LENGTH_SHORT).show();
-
 
     }
 
@@ -78,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     JSONArray arr = jsonObject.getJSONArray("result");
                     for(int i=0; i<arr.length(); i++){
                         JSONObject o = arr.getJSONObject(i);
-
                         //Toast.makeText(this, o.getString("id"), Toast.LENGTH_LONG).show();
                         if(o.getString("id").matches("")){
                             Toast.makeText(this, "Wrong Username or Password", Toast.LENGTH_LONG).show();
@@ -125,24 +117,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         else
             return false;
-    }
-
-
-
-
-
-    //activity state to be check
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        CheckState.activityPaused();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        CheckState.activityResumed();
     }
 
 
