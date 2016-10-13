@@ -25,7 +25,7 @@ public class UserHome extends AppCompatActivity {
         String photourl = sessionManager.photourl();
         iv = (ImageView)findViewById(R.id.imageView2);
         URL url = null;
-        try {
+       /* try {
             url = new URL(photourl);
             Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             iv.setImageBitmap(bmp);
@@ -33,7 +33,7 @@ public class UserHome extends AppCompatActivity {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
     }
