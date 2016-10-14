@@ -1,0 +1,20 @@
+package com.example.nikhil.trafficapp;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+/**
+ * Created by karwal on 14-10-2016.
+ */
+
+public class SplashStart extends AppCompatActivity{
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+}
