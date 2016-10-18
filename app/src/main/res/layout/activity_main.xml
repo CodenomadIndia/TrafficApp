@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="@drawable/back1"
-    android:isScrollContainer="false">
+    >
     <RelativeLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -54,7 +54,7 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/textView3"
             android:fontFamily="fonts/Montserrat-Light.ttf"
-            android:textSize="34px"
+            android:textSize="61px"
             android:paddingLeft="21px"
             android:paddingRight="21px"
             android:textColor="#141517"
@@ -84,14 +84,14 @@
                     android:inputType="textPersonName"
                     android:text=""
                     android:ems="10"
-                    android:textSize="24px"
+                    android:textSize="32px"
                     android:textColorHint="#b5b6b6"
                     android:id="@+id/username"
                     android:hint="User Name"
                     android:fontFamily="fonts/Montserrat-Light.ttf"
                     android:background="@drawable/border"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     android:paddingLeft="30dp"/>
                 <ImageView
                     android:layout_width="wrap_content"
@@ -112,14 +112,14 @@
                     android:inputType="textPassword"
                     android:text=""
                     android:ems="10"
-                    android:textSize="24px"
+                    android:textSize="32px"
                     android:textColorHint="#b5b6b6"
                     android:id="@+id/password"
                     android:hint="Password"
                     android:fontFamily="fonts/Montserrat-Light.ttf"
                     android:background="@drawable/border"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     android:paddingLeft="30dp"/>
                 <ImageView
                     android:layout_width="wrap_content"
@@ -141,6 +141,7 @@
                 android:textColor="#FFF"
                 android:layout_marginTop="20dp"
                 android:textAllCaps="false"
+                android:textSize="32px"
                 />
 
         </LinearLayout>

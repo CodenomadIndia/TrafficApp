@@ -52,7 +52,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                     HttpPostingData htdp = new HttpPostingData(url1, data);
                     String res = htdp.getRes();
                     //System.out.print(res);
-                    Toast.makeText(this, res, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, res, Toast.LENGTH_LONG).show();
                     JSONObject jsonObject = new JSONObject(res);
                     JSONArray arr = jsonObject.getJSONArray("result");
                     for(int i=0; i<arr.length(); i++){
@@ -68,7 +68,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                             String testdate = o.getString("test_date");
                             String testtime = o.getString("time");
                             String photourl = o.getString("photo");
-                            Toast.makeText(this, photourl, Toast.LENGTH_LONG).show();
+                           // Toast.makeText(this, idnumber, Toast.LENGTH_LONG).show();
                             sessionmanager.learnerProfile(name, idnumber, address, phonenumber, testdate, testtime, photourl);
                             Intent it = new Intent(this, UserHome.class);
                             startActivity(it);

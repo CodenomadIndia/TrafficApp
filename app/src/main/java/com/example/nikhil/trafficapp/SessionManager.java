@@ -13,14 +13,14 @@ public class SessionManager {
     SessionManager(Context t){
         sh = t.getSharedPreferences("session_data", 0);
         t1 = sh.edit();
-        init();
+        //init();
     }
 
     private void init(){
         try{
             t1.putString("user_id", "");
             t1.putString("user_type", "");
-            t1.putString("name", "");
+            t1.putString("fullname", "");
             t1.putString("idnumber", "");
             t1.putString("address", "");
             t1.putString("phonenumber", "");
@@ -40,7 +40,7 @@ public class SessionManager {
 
     void learnerProfile(String name, String idnumber, String address, String phonenumber, String testdate, String testtime, String photourl){
         try{
-            t1.putString("name", name);
+            t1.putString("fullname", name);
             t1.putString("idnumber", idnumber);
             t1.putString("address", address);
             t1.putString("phonenumber", phonenumber);
@@ -58,8 +58,8 @@ public class SessionManager {
     public String getUserId() {
         return sh.getString("user_id", "");
     }
-    public String name() {
-        return sh.getString("name", "");
+    public String fullname() {
+        return sh.getString("fullname", "");
     }
     public String idnumber() {
         return sh.getString("idnumber", "");

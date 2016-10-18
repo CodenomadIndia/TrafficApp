@@ -1,5 +1,6 @@
 package com.example.nikhil.trafficapp;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 import org.json.JSONException;
@@ -34,6 +35,7 @@ public class HttpPostingData {
     }
 
     class AsyncT extends AsyncTask<String,Void,String> {
+
 
 
         @Override

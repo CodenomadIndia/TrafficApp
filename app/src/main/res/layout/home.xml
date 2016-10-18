@@ -3,17 +3,6 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:text="Learner Profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="35dp"
-        android:textSize="30dp"
-        android:fontFamily="fonts/Montserrat-Light.ttf"
-        android:id="@+id/textView" />
-
-    <TextView
         android:text="ID Number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,5 +39,19 @@
         android:textAllCaps="false"
         android:layout_below="@+id/idNumber"
         />
+
+    <TextView
+        android:text="Learner Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:fontFamily="fonts/Montserrat-Light.ttf"
+        android:id="@+id/textView"
+        android:layout_marginRight="282dp"
+        android:layout_marginEnd="282dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/idNumber"
+        android:layout_toStartOf="@+id/idNumber"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>
