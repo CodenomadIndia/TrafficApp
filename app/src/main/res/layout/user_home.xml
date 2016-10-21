@@ -158,5 +158,67 @@
         android:paddingTop="20dp"
         />
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <VideoView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:id="@+id/videoView"
+                    android:layout_weight="1"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+                <VideoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/videoView2"
+                    android:layout_weight="2" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        app:srcCompat="@drawable/ic_action_lock_closed"
+                        android:id="@+id/imageView3"
+                        android:layout_weight="2"
+                         />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="Begin Test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button3"
+                android:layout_weight="1"
+                android:background="#0073AE"
+                android:fontFamily="fonts/Montserrat-Light.ttf"
+                android:textColor="#FFF"
+                android:layout_marginTop="24dp"
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>
